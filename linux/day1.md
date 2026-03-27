@@ -1,10 +1,3 @@
-# Linux Day 1
-
-##
--ls
--pwd
--cd
-
-## 파일 생성 / 삭제
-
-## not yet 
+# Linux Study Log
+- ls -al: 목록 확인하기 (리눅스는 공백이 중요!)
+- pwd: 현재 위치 확인
