@@ -2,7 +2,7 @@
 ##fd
 
 #-cat fd.c
-<pre><code>'''c
+'''c
 
 ##include <stdio.h>
 ##include <stdlib.h>
