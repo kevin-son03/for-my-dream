@@ -14,4 +14,11 @@
 -ISO remove in UTM CD/DCV
 -Login 
 
+##connect with terminal (SSH)
+
+#1.in Ubuntu
+-ip a
+
+#2.in terminal
+ssh username@Ubntuip
 
