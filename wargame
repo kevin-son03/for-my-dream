@@ -1,0 +1,49 @@
+<pre><code>
+
+###Baby Linux
+#리눅스 명령어를 실행하는 웹 서비스가 작동하고 있습니다.
+해당 웹 서비스의 코드가 첨부파일로 주어집니다.
+
+flag.txt 파일을 찾아 출력하여 플래그를 획득하세요!
+
+플래그 형식은 DH{...} 입니다.
+
+#code
+import subprocess
+from flask import Flask, request, render_template
+
+APP = Flask(__name__)
+
+@APP.route('/', methods=['GET', 'POST'])
+def index():
+    if request.method == 'POST':
+        user_input = request.form.get('user_input')
+        cmd = f'echo $({user_input})'
+        if 'flag' in cmd:
+            return render_template('index.html', result='No!')
+
+        try:
+            output = subprocess.check_output(['/bin/sh', '-c', cmd], timeout=5)
+            return render_template('index.html', result=output.decode('utf-8'))
+        except subprocess.TimeoutExpired:
+            return render_template('index.html', result='Timeout')
+        except subprocess.CalledProcessError:
+            return render_template('index.html', result='Error')
+
+    return render_template('index.html')
+
+if __name__ == '__main__':
+    APP.run(host='0.0.0.0', port=8000)
+
+##method
+-import subprocess: 리눅스 터미널 명령어를 실행할 수 있게 해줌
+-user_input = request.form.get('user_input'): 입력창에 타이핑한 내용을 
+user_input 변수에 담음
+-cmd = f'echo $({user_input})': 핵심 구간! 사용자의 입력을 $( ) 안에 넣어서
+리눅스 명령어로 만듬
+-if 'flag' in cmd:: 완성된 명령어 문자열 안에 'flag'라는 단어가 들어있는지 검사
+-return render_template('index.html', result='No!'): 만약 'flag'가 포함되있으면
+NO! 출력
+-flag를 입력하면 no!가 뜨기때문에 이를 피하기위해 *을 사용 fla*
+-플래그 값 출력됌
+ 
