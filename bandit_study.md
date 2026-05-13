@@ -1,37 +1,45 @@
----
+bandit 
 
-## 🛠️ Bandit Level 0-10: Command Cheat Sheet
+level 0. 
+ssh bandit0@bandit.labs.overthewire.org -p (port)
 
-| Command | Concept | Description |
-| :--- | :--- | :--- |
-| **`ls -al`** | List All | Show all files, including hidden ones. |
-| **`cd`** | Change Dir | Move between folders. |
-| **`cat`** | Cat | Read file content directly. |
-| **`find`** | Search | Find files by size, user, or group. |
-| **`file`** | Identify | Check if a file is text, data, or executable. |
-| **`grep`** | Filter | Search for a specific string (e.g., "password"). |
-| **`sort`** | Arrange | Sort text lines alphabetically or numerically. |
-| **`uniq -u`** | Unique | Display only the lines that appear once. |
-| **`strings`** | Extract | Find human-readable strings in binary files. |
-| **`base64 -d`** | Decode | Decode Base64 encoded data. |
-| **`du -h`** | Disk Usage | Check file/directory sizes in human-readable format. |
+level 1.
+ls, cat
 
-### 💡 Advanced Pro-Tips
-* **Pipe (`|`)**: Connects the output of one command to the input of another.
-* **Redirection (`2>/dev/null`)**: Hides error messages (like 'Permission Denied').
-* **Tab Completion**: Use the `Tab` key to auto-complete file and directory names.# 🚩 OverTheWire: Bandit Level 0 ~ 10 Summary
+level 2.
+ls, cat./
 
-### 🛠️ Key Commands Learned
-| Level | Command | Description |
-| :--- | :--- | :--- |
-| **0-1** | `ls`, `cat` | Basic file reading |
-| **2-3** | `cat "./file name"` | Handling spaces and dashes in filenames |
-| **4-5** | `find`, `file` | Searching for specific file types and sizes |
-| **6-7** | `grep`, `2>/dev/null` | Filtering data and handling permission errors |
-| **8-9** | `sort`, `uniq`, `strings` | Finding unique lines and extracting text from binary |
-| **10** | `base64 -d` | Decoding Base64 data |
+level 3.
+ls -al, cat ./"--"
 
-### 💡 My Growth
-- Learned how to use **Pipes (|)** to chain commands.
-- Understood the difference between **Binary** and **ASCII** files.
-- Practiced troubleshooting when files are hidden or protected.
+level 4.
+ls -al, cd, cat
+
+level 5.
+ls -al, cd, file ./*
+
+level 6.
+ls -al, cd, find ./ -type f -size 1033c ! -executable
+
+level 7.
+ls, find / -user bandit7 -group bandit6 -size33c 2> /dev/null
+
+level 8.
+ls -al, grep
+
+level 9.
+ls, sort, unip -u
+
+
+level 10.
+strings, grep
+
+level 11.
+base64 -d
+
+level 12.
+ROT13
+
+level 13.
+xxd -r, mv, gunzip, bzip2 -d, tar -xf
+
